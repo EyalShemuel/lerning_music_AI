@@ -14,109 +14,109 @@ const KeyBord = () => {
     return (
         
         <ul className="piano" >
-          <li className="b">
+          <li id = 'c1' className="b">
             <div>c</div>
           </li>
-          <li className="b">
+          <li id = 'd1' className="b">
             <div>d</div>
           </li>
-          <li>
+          <li id = 'e1'>
             <div>e</div>
           </li>
-          <li className="b">
+          <li id = 'f1' className="b">
             <div>f</div>
           </li>
-          <li className="b">
+          <li id = 'g1' className="b">
             <div>g</div>
           </li>
-          <li className="b">
+          <li id = 'a2' className="b">
             <div>a</div>
           </li>
-          <li>
+          <li id = 'b2'>
             <div>b</div>
           </li>
-          <li className="b">
+          <li id = 'c2' className="b">
             <div>c</div>
           </li>
-          <li className="b">
+          <li id = 'd2' className="b">
             <div>d</div>
           </li>
-          <li>
+          <li id = 'e2'>
             <div>e</div>
           </li>
-          <li className="b">
+          <li id = 'f2' className="b">
             <div>f</div>
           </li>
-          <li className="b">
+          <li id = 'g2' className="b">
             <div>g</div>
           </li>
-          <li className="b">
+          <li id = 'a3' className="b">
             <div>a</div>
           </li>
-          <li>
+          <li id = 'b3'>
             <div>b</div>
           </li>
-          <li className="b">
+          <li id = 'c3' className="b">
             <div>c</div>
           </li>
-          <li className="b">
+          <li id = 'd3' className="b">
             <div>d</div>
           </li>
-          <li>
+          <li id = 'e3'>
             <div>e</div>
           </li>
-          <li className="b">
+          <li id = 'f3' className="b">
             <div>f</div>
           </li>
-          <li className="b">
+          <li id = 'g3' className="b">
             <div>g</div>
           </li>
-          <li className="b">
+          <li id = 'a4' className="b">
             <div>a</div>
           </li>
-          <li>
+          <li id = 'b4'>
             <div>b</div>
           </li>
-          <li className="b">
+          <li id = 'c4' className="b">
             <div>c</div>
           </li>
-          <li className="b">
+          <li id = 'd4' className="b">
             <div>d</div>
           </li>
-          <li>
+          <li id = 'e4'>
             <div>e</div>
           </li>
-          <li className="b">
+          <li id = 'f4' className="b">
             <div>f</div>
           </li>
-          <li className="b">
+          <li id = 'g4' className="b">
             <div>g</div>
           </li>
-          <li className="b">
+          <li id = 'a5' className="b">
             <div>a</div>
           </li>
-          <li>
+          <li id = 'b5'>
             <div>b</div>
           </li>
-          <li className="b">
+          <li id = 'c5' className="b">
             <div>c</div>
           </li>
-          <li className="b">
+          <li id = 'd5' className="b">
             <div>d</div>
           </li>
-          <li>
+          <li id = 'e5'>
             <div>e</div>
           </li>
-          <li className="b">
+          <li id = 'f5' className="b">
             <div>f</div>
           </li>
-          <li className="b">
+          <li id = 'g5' className="b">
             <div>g</div>
           </li>
-          <li className="b">
+          <li id = 'a6' className="b">
             <div>a</div>
           </li>
-          <li>
+          <li id = 'a6'>
             <div>b</div>
           </li>
         
