@@ -12,7 +12,7 @@ const KeyBord = () => {
   }
 
     return (
-        <span >
+        
         <ul className="piano" >
           <li className="b">
             <div>c</div>
@@ -36,33 +36,93 @@ const KeyBord = () => {
             <div>b</div>
           </li>
           <li className="b">
-            <div>c'</div>
+            <div>c</div>
           </li>
           <li className="b">
-            <div>d'</div>
+            <div>d</div>
           </li>
           <li>
-            <div>e'</div>
+            <div>e</div>
           </li>
           <li className="b">
-            <div>f'</div>
+            <div>f</div>
           </li>
           <li className="b">
-            <div>g'</div>
+            <div>g</div>
           </li>
           <li className="b">
-            <div>a'</div>
+            <div>a</div>
           </li>
           <li>
-            <div>b'</div>
+            <div>b</div>
           </li>
           <li className="b">
-            <div>c''</div>
+            <div>c</div>
+          </li>
+          <li className="b">
+            <div>d</div>
+          </li>
+          <li>
+            <div>e</div>
+          </li>
+          <li className="b">
+            <div>f</div>
+          </li>
+          <li className="b">
+            <div>g</div>
+          </li>
+          <li className="b">
+            <div>a</div>
+          </li>
+          <li>
+            <div>b</div>
+          </li>
+          <li className="b">
+            <div>c</div>
+          </li>
+          <li className="b">
+            <div>d</div>
+          </li>
+          <li>
+            <div>e</div>
+          </li>
+          <li className="b">
+            <div>f</div>
+          </li>
+          <li className="b">
+            <div>g</div>
+          </li>
+          <li className="b">
+            <div>a</div>
+          </li>
+          <li>
+            <div>b</div>
+          </li>
+          <li className="b">
+            <div>c</div>
+          </li>
+          <li className="b">
+            <div>d</div>
+          </li>
+          <li>
+            <div>e</div>
+          </li>
+          <li className="b">
+            <div>f</div>
+          </li>
+          <li className="b">
+            <div>g</div>
+          </li>
+          <li className="b">
+            <div>a</div>
+          </li>
+          <li>
+            <div>b</div>
           </li>
         
           
         </ul>
-      </span>
+     
     )
 }
 
