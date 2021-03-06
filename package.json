@@ -1,0 +1,24 @@
+{
+  "name": "lerning_music_AI",
+  "version": "1.0.0",
+  "description": "a simple aplication for piano lerning with AI",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EyalShemuel/lerning_music_AI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EyalShemuel/lerning_music_AI/issues"
+  },
+  "homepage": "https://github.com/EyalShemuel/lerning_music_AI#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
