@@ -1,26 +1,46 @@
-import React from 'react'
-import "./keybord.css";
-window.addEventListener("keypress", event => {
-  console.log(event)
-  // do something
-});
-const KeyBord = () => {
-  
-  const handelClick = (e) =>{
+import React, { useEffect } from 'react';
+import './keybord.css';
+import Key from './Key';
+
+const KeyBord = ({ keys, setkeys }) => {
+  useEffect(() => {
+    /* {key:'a',note:'c1',state:false} */
+    window.addEventListener('keypress', (event) => {
+      console.log(event.key);
+      switch (event.key) {
+        case 'a':
+          setkeys(
+            keys.map((key) =>
+              key.key === 'a' ? { ...key, state: !key.status } : key
+            )
+          );
+          break;
+        case 's':
+          // code block
+          break;
+        default:
+        // code block
+      }
+    });
+  });
+  /* const handelClick = (e) =>{
     const key = e.target;
     console.log(key)
-  }
+  } */
 
-    return (
-        
-        <ul className="piano" >
-          <li id = 'c1' className="b">
+  return (
+    <ul className="piano">
+     { keys.map((thekey) =>(
+        <Key thekey={thekey} />
+      ))}
+      
+      {/*  <li id = 'c1' className="b">
             <div>c</div>
           </li>
           <li id = 'd1' className="b">
             <div>d</div>
           </li>
-          <li id = 'e1'>
+          <li id = 'e1' >
             <div>e</div>
           </li>
           <li id = 'f1' className="b">
@@ -118,12 +138,9 @@ const KeyBord = () => {
           </li>
           <li id = 'a6'>
             <div>b</div>
-          </li>
-        
-          
-        </ul>
-     
-    )
-}
+          </li> */}
+    </ul>
+  );
+};
 
-export default KeyBord
+export default KeyBord;

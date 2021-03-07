@@ -5,7 +5,29 @@ import Myvexflow from './Myvexflow';
 //const VF = Vex.Flow;
 
 const Notes = (props) => {
-  /* 
+ 
+  const notesChanks = [...props.notesObject];
+
+  const longArray = [...notesChanks];
+  let shortArrays = [];
+
+  for (let i = 0, len = longArray.length; i < len; i += 4) {
+    shortArrays.push(longArray.slice(i, i + 4));
+  }
+
+  return (
+    <>
+      {shortArrays.map((ary) => (
+        <Myvexflow width="1200" height="150" clef="treble" staves={ary} />
+      ))}
+    </>
+  );
+};
+
+export default Notes;
+
+
+ /* 
  vaxflow example
  useEffect(() => {
     const vf = new VF.Factory({
@@ -26,22 +48,3 @@ const Notes = (props) => {
   
   },[]);
    */
-  const notesChanks = [...props.fiestNotesObject];
-
-  const longArray = [...notesChanks];
-  let shortArrays = [];
-
-  for (let i = 0, len = longArray.length; i < len; i += 4) {
-    shortArrays.push(longArray.slice(i, i + 4));
-  }
-
-  return (
-    <>
-      {shortArrays.map((ary) => (
-        <Myvexflow width="1200" height="150" clef="treble" staves={ary} />
-      ))}
-    </>
-  );
-};
-
-export default Notes;

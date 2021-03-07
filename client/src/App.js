@@ -5,36 +5,66 @@ import Notes from './Components/Notes/Notes';
 
 function App() {
 
-
+/* 
+up = have black key from right
+down = DONT have black key from right 
+*/
   
-  const [fiestNotesObject, setfiestNotesObject] = useState([
-    ['a3', 'b4', 'c4', 'd4'],
-    ['e4', 'f4', 'g4', 'a4'],
-    ['a3', 'b4', 'c4', 'd4'],
-    ['e4', 'f4', 'g4', 'a4'],
-    ['a3', 'b4', 'c4', 'd4'],
-    ['e4', 'f4', 'g4', 'a4'],
-    ['a3', 'b4', 'c4', 'd4'],
-    ['e4', 'f4', 'g4', 'a4'],
-    ['a3', 'b4', 'c4', 'd4'],
-    ['e4', 'f4', 'g4', 'a4'],
-    ['a3', 'b4', 'c4', 'd4'],
-    ['e4', 'f4', 'g4', 'a4'],
+  const [notesObject, setNotesObject] = useState([]);
+  const [keys, setkeys] = useState([
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'down',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'down',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'down',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'down',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'down',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'down',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'down',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'down',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'down',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'up',state:false},
+    {key:'a',note:'c1',type:'down',state:false},
     
-    ['d4', 'e4', ['g3', 2]],
   ]);
-  const [secondNotesObject, setsecondNotesObject] = useState([]);
   return (
     <div className="screan">
       <div className="tavim">
         <Notes
-          fiestNotesObject={fiestNotesObject}
-          setfiestNotesObject={setfiestNotesObject}
-          secondNotesObject={secondNotesObject}
-          setsecondNotesObject={setsecondNotesObject}
+          notesObject={notesObject}
+          setNotesObject={setNotesObject}
+          keys={keys}
+          setkeys={setkeys}
+          
         />
       </div>
-      <KeyBord />
+      <KeyBord 
+     keys={keys}
+     setkeys={setkeys}
+      
+      />
     </div>
   );
 }
