@@ -4,15 +4,17 @@ import Key from './Key';
 
 const KeyBord = ({ keys, setkeys }) => {
   useEffect(() => {
-    /* {key:'a',note:'c1',state:false} */
-    window.addEventListener('keypress', (event) => {
-      console.log(event.key);
+    /* {key:'a',note:'c1',pressed:false} */
+    window.addEventListener('keydown', (event) => {
+      
       switch (event.key) {
         case 'a':
           setkeys(
             keys.map((key) =>
-              key.key === 'a' ? { ...key, state: !key.status } : key
-            )
+              key.key === 'a' ? { ...key, pressed: 'true'  } : key
+            ),
+            console.log('tt')
+           
           );
           break;
         case 's':
@@ -22,16 +24,33 @@ const KeyBord = ({ keys, setkeys }) => {
         // code block
       }
     });
-  });
-  /* const handelClick = (e) =>{
-    const key = e.target;
-    console.log(key)
-  } */
+    window.addEventListener('keyup', (event) => {
+      
+      switch (event.key) {
+        case 'a':
+          setkeys(
+            keys.map((key) =>
+              key.key === 'a' ? { ...key, state: 'false' } : key
+            ),
+            document.getElementById("c1").click()
+          );
+          break;
+        case 's':
+          // code block
+          break;
+        default:
+        // code block
+      }
+    });
+  },[]);
+ 
 
   return (
     <ul className="piano">
      { keys.map((thekey) =>(
-        <Key thekey={thekey} />
+        <Key 
+        id={thekey.id}
+        thekey={thekey} />
       ))}
       
       {/*  <li id = 'c1' className="b">
