@@ -1,17 +1,11 @@
-import React from "react";
-import "./notes.css";
+import React from 'react';
+import './notes.css';
 //import Vex from 'vexflow';
 import Myvexflow from './Myvexflow';
- //const VF = Vex.Flow;
-
-
-
+//const VF = Vex.Flow;
 
 const Notes = (props) => {
- 
-  
-  
- /* 
+  /* 
  vaxflow example
  useEffect(() => {
     const vf = new VF.Factory({
@@ -34,25 +28,19 @@ const Notes = (props) => {
    */
   const notesChanks = [...props.fiestNotesObject];
 
+  const longArray = [...notesChanks];
+  let shortArrays = [];
 
-   
-
-const longArray = [...notesChanks];  
-let shortArrays = [];
-
-
-for (let i = 0, len = longArray.length; i < len; i += 4) {
+  for (let i = 0, len = longArray.length; i < len; i += 4) {
     shortArrays.push(longArray.slice(i, i + 4));
-}
+  }
+
   return (
-  <>
-  <Myvexflow width='1200' height='150' clef = 'treble' staves={notesChanks}/>
-  <Myvexflow width='1200' height='150' clef = 'treble' staves={notesChanks}/>
-  {/* {shortArrays.forEach((array)=>{
-    console.log(<Myvexflow width='1200' height='150' clef = 'treble' staves={array}/>)
-   })} */}
-   
-  </>
+    <>
+      {shortArrays.map((ary) => (
+        <Myvexflow width="1200" height="150" clef="treble" staves={ary} />
+      ))}
+    </>
   );
 };
 

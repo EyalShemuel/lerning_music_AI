@@ -1,6 +1,8 @@
 .tavim{
     grid-row: 1;
     grid-column: 1; 
+    overflow-y:scroll ;
+    height: 340px;
   }
 div{
     background-color: #ffffff;
@@ -14,6 +16,5 @@ div{
 svg{
     margin:auto;
     display:grid;
-    
 }
 
