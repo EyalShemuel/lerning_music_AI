@@ -10,10 +10,7 @@ up = have black key from right
 down = DONT have black key from right 
 */
 
-  const [notesObject, setNotesObject] = useState([
-    ["c4", "d4", "e4", "f4","c4", "d4", "e4", "f4"],
-    
-  ]);
+  const [notesObject, setNotesObject] = useState([['a1,a2'],['a1','a2']]);
   const [keys, setkeys] = useState([
     { key: "a", note: "c4", type: "down" },
     { key: "q", note: "Db4", type: "up" },
@@ -40,6 +37,7 @@ down = DONT have black key from right
     { key: "U", note: "Bb", type: "up" },
     { key: "J", note: "B", type: "down" },
   ]);
+  
   return (
     <div className="screen">
       <h1>play and see what you play</h1>

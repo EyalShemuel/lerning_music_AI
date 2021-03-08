@@ -3,15 +3,15 @@ import "./keybord.css";
 import Key from "./Key";
 /* key, note, type, pressed */
 
-const KeyBord = ({ keys,notesObject,setNotesObject }) => {
+const KeyBord = (props) => {
   useEffect(() => {
     /* {key:'a',note:'c1',pressed:false} */
 
     ///get a list of the white and black keys///////
-    const WHITE_KEYS = keys
+    const WHITE_KEYS = props.keys
       .filter((key) => (key.type === "down" ? key.note : ""))
       .map((key) => key.key);
-    const BLACK_KEYS = keys
+    const BLACK_KEYS = props.keys
       .filter((key) => (key.type === "up" ? key.note : ""))
       .map((key) => key.key);
     ////////////////////////////////////////////
@@ -27,7 +27,7 @@ const KeyBord = ({ keys,notesObject,setNotesObject }) => {
 
     document.addEventListener("keydown", (e) => {
       if (e.repeat) return;
-      const keyPressed = keys.filter((key) => (key.key === e.key ? key.note : "")).map((key) => key.note);
+     
       //console.log(keyPressed);
       const key = e.key;
       const whiteKeyIndex = WHITE_KEYS.indexOf(key);
@@ -35,34 +35,38 @@ const KeyBord = ({ keys,notesObject,setNotesObject }) => {
 
       if (whiteKeyIndex > -1) {
         whiteKeys[whiteKeyIndex].classList.add("active");
-        editNotes(keyPressed)
+       
       } 
       if (blackKeyIndex > -1) blackKeys[blackKeyIndex].classList.add("active");
     });
 
     document.addEventListener("keyup", (e) => {
+      const keyPressed = props.keys.filter((key) => (key.key === e.key ? key.note : "")).map((key) => key.note);
       if (e.repeat) return;
       const key = e.key;
       const whiteKeyIndex = WHITE_KEYS.indexOf(key);
       const blackKeyIndex = BLACK_KEYS.indexOf(key);
 
-      if (whiteKeyIndex > -1) whiteKeys[whiteKeyIndex].classList.remove("active");
+      if (whiteKeyIndex > -1){
+        whiteKeys[whiteKeyIndex].classList.remove("active");
+        editNotes(keyPressed)
+      } 
       if (blackKeyIndex > -1) blackKeys[blackKeyIndex].classList.remove("active");
+     
     });
-  }, []);
-const noteSheet =[];
+  }, [props.keys]);
+const sheetNote =[];
 const editNotes = (note) =>{
-
-  noteSheet.push(note[0]);
-
+  sheetNote.push(note[0])
+  
   console.log(note[0]);
-  setNotesObject([...notesObject,note[0]])
-  console.log(notesObject);
+  props.setNotesObject([...props.notesObject , sheetNote])
+  
 }
-
+console.log(props.notesObject);
   return (
     <div className="piano">
-      {keys.map((key) => (
+      {props.keys.map((key) => (
         <Key
           theKey={key.key}
           note={key.note}
