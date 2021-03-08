@@ -1,24 +1,23 @@
 * {
   box-sizing: border-box;
   -webkit-box-sizing:border-box;
+  
 }
 
-body { 
-	font-family: sans-serif;
-	color: #fff;
-	background: #444;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
-  margin: 0 0 0 4px;
-  padding: 0;
-  overflow: hidden;
+body {
+  background-color: #143F6B;
+  margin: 0;
+  min-height: 100vh;
+ padding: 10px;
+ 
+}
   
 
-}
-.screan{
+
+.screen{
   display:grid;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows:0.5fr 1fr 2fr;
   grid-template-columns: 1fr;
+  height:97vh;
 }
 

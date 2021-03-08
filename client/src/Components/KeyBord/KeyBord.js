@@ -1,164 +1,76 @@
-import React, { useEffect } from 'react';
-import './keybord.css';
-import Key from './Key';
+import React, { useEffect } from "react";
+import "./keybord.css";
+import Key from "./Key";
+/* key, note, type, pressed */
 
-const KeyBord = ({ keys, setkeys }) => {
+const KeyBord = ({ keys,notesObject,setNotesObject }) => {
   useEffect(() => {
     /* {key:'a',note:'c1',pressed:false} */
-    window.addEventListener('keydown', (event) => {
-      
-      switch (event.key) {
-        case 'a':
-          setkeys(
-            keys.map((key) =>
-              key.key === 'a' ? { ...key, pressed: 'true'  } : key
-            ),
-            console.log('tt')
-           
-          );
-          break;
-        case 's':
-          // code block
-          break;
-        default:
-        // code block
-      }
+
+    ///get a list of the white and black keys///////
+    const WHITE_KEYS = keys
+      .filter((key) => (key.type === "down" ? key.note : ""))
+      .map((key) => key.key);
+    const BLACK_KEYS = keys
+      .filter((key) => (key.type === "up" ? key.note : ""))
+      .map((key) => key.key);
+    ////////////////////////////////////////////
+
+
+    const keyDivs = document.querySelectorAll(".key");
+    const whiteKeys = document.querySelectorAll(".key.white");
+    const blackKeys = document.querySelectorAll(".key.black");
+
+    keyDivs.forEach((key) => {
+      key.addEventListener("click", (e) => console.log(e));
     });
-    window.addEventListener('keyup', (event) => {
-      
-      switch (event.key) {
-        case 'a':
-          setkeys(
-            keys.map((key) =>
-              key.key === 'a' ? { ...key, state: 'false' } : key
-            ),
-            document.getElementById("c1").click()
-          );
-          break;
-        case 's':
-          // code block
-          break;
-        default:
-        // code block
-      }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.repeat) return;
+      const keyPressed = keys.filter((key) => (key.key === e.key ? key.note : "")).map((key) => key.note);
+      //console.log(keyPressed);
+      const key = e.key;
+      const whiteKeyIndex = WHITE_KEYS.indexOf(key);
+      const blackKeyIndex = BLACK_KEYS.indexOf(key);
+
+      if (whiteKeyIndex > -1) {
+        whiteKeys[whiteKeyIndex].classList.add("active");
+        editNotes(keyPressed)
+      } 
+      if (blackKeyIndex > -1) blackKeys[blackKeyIndex].classList.add("active");
     });
-  },[]);
- 
+
+    document.addEventListener("keyup", (e) => {
+      if (e.repeat) return;
+      const key = e.key;
+      const whiteKeyIndex = WHITE_KEYS.indexOf(key);
+      const blackKeyIndex = BLACK_KEYS.indexOf(key);
+
+      if (whiteKeyIndex > -1) whiteKeys[whiteKeyIndex].classList.remove("active");
+      if (blackKeyIndex > -1) blackKeys[blackKeyIndex].classList.remove("active");
+    });
+  }, []);
+const noteSheet =[];
+const editNotes = (note) =>{
+
+  noteSheet.push(note[0]);
+
+  console.log(note[0]);
+  setNotesObject([...notesObject,note[0]])
+  console.log(notesObject);
+}
 
   return (
-    <ul className="piano">
-     { keys.map((thekey) =>(
-        <Key 
-        id={thekey.id}
-        thekey={thekey} />
+    <div className="piano">
+      {keys.map((key) => (
+        <Key
+          theKey={key.key}
+          note={key.note}
+          type={key.type}
+          pressed={key.pressed}
+        />
       ))}
-      
-      {/*  <li id = 'c1' className="b">
-            <div>c</div>
-          </li>
-          <li id = 'd1' className="b">
-            <div>d</div>
-          </li>
-          <li id = 'e1' >
-            <div>e</div>
-          </li>
-          <li id = 'f1' className="b">
-            <div>f</div>
-          </li>
-          <li id = 'g1' className="b">
-            <div>g</div>
-          </li>
-          <li id = 'a2' className="b">
-            <div>a</div>
-          </li>
-          <li id = 'b2'>
-            <div>b</div>
-          </li>
-          <li id = 'c2' className="b">
-            <div>c</div>
-          </li>
-          <li id = 'd2' className="b">
-            <div>d</div>
-          </li>
-          <li id = 'e2'>
-            <div>e</div>
-          </li>
-          <li id = 'f2' className="b">
-            <div>f</div>
-          </li>
-          <li id = 'g2' className="b">
-            <div>g</div>
-          </li>
-          <li id = 'a3' className="b">
-            <div>a</div>
-          </li>
-          <li id = 'b3'>
-            <div>b</div>
-          </li>
-          <li id = 'c3' className="b">
-            <div>c</div>
-          </li>
-          <li id = 'd3' className="b">
-            <div>d</div>
-          </li>
-          <li id = 'e3'>
-            <div>e</div>
-          </li>
-          <li id = 'f3' className="b">
-            <div>f</div>
-          </li>
-          <li id = 'g3' className="b">
-            <div>g</div>
-          </li>
-          <li id = 'a4' className="b">
-            <div>a</div>
-          </li>
-          <li id = 'b4'>
-            <div>b</div>
-          </li>
-          <li id = 'c4' className="b">
-            <div>c</div>
-          </li>
-          <li id = 'd4' className="b">
-            <div>d</div>
-          </li>
-          <li id = 'e4'>
-            <div>e</div>
-          </li>
-          <li id = 'f4' className="b">
-            <div>f</div>
-          </li>
-          <li id = 'g4' className="b">
-            <div>g</div>
-          </li>
-          <li id = 'a5' className="b">
-            <div>a</div>
-          </li>
-          <li id = 'b5'>
-            <div>b</div>
-          </li>
-          <li id = 'c5' className="b">
-            <div>c</div>
-          </li>
-          <li id = 'd5' className="b">
-            <div>d</div>
-          </li>
-          <li id = 'e5'>
-            <div>e</div>
-          </li>
-          <li id = 'f5' className="b">
-            <div>f</div>
-          </li>
-          <li id = 'g5' className="b">
-            <div>g</div>
-          </li>
-          <li id = 'a6' className="b">
-            <div>a</div>
-          </li>
-          <li id = 'a6'>
-            <div>b</div>
-          </li> */}
-    </ul>
+    </div>
   );
 };
 

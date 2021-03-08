@@ -1,73 +1,62 @@
-
-
-ul.piano {
-  list-style: none;
-  padding: 0;
-   width: 100%;
-  height: 70%;
-  bottom: 1%;
-align-self:center;
-justify-self: center;
-text-align: center;
-grid-row: 2;
-grid-column: 1;
-
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.piano li {
-  position: relative;
-  display: inline-block;
-  width: 2.85%;
-  height: 100%;
-/*   margin-right: -5px; */
+
+
+.piano {
+ 
+  display: flex;
+grid-row: 3;
+align-self:flex-end;
+justify-content:center;
+
+ height: 90%; 
 }
 
-.piano div {
-  width: 100%;
-  height: 100%;
+h1{
+  text-align:center;
+}
+
+.key {
+  height: calc(var(--width) * 4);
+  width: var(--width);
+}
+
+.white {
+  width:6%;
+  height: 90%;
   background: #ffc;
   background: linear-gradient(45deg, #ffe, #fff);
-  color: #000;
-  display: block;
-  text-align: center;
+  border: 1px solid #333;
   border: 1px solid #876;
   cursor: pointer;
   border-radius: 0 0 4px 4px;
   box-shadow: 0 8px 6px -6px black;
 }
 
-.piano div:active {
+.white.active,.white:active {
   background: #eee;
   background: linear-gradient(45deg, #ddc, #ddd);
   box-shadow: 0 4px 3px -3px black;
   box-shadow: inset 2px 0px 3px -1px rgba(0,0,0,0.61);
 }
 
-.activeted{
-  background: #eee;
-  background: linear-gradient(45deg, #ddc, #ddd);
-  box-shadow: 0 4px 3px -3px black;
-  box-shadow: inset 2px 0px 3px -1px rgba(0,0,0,0.61);
-}
- 
 
-li.b:after {
-  cursor: pointer;
-  position: absolute;
-  top: 0px;
-  z-index: 10;
-  left: 65%;
-  width: 50%;
-  height: 66%;
+.black {
+  color:white;
+  --width:3%;
+  height: 60%;
   background: #332;
   background: linear-gradient(225deg, #332, #000);
-  content: "";
   border-radius: 0 0 4px 4px;
   box-shadow: 0 8px 6px -6px black;
+  margin-left: calc(var(--width) / -2);
+  margin-right: calc(var(--width) / -2);
+  z-index: 2;
 }
 
-li.b:active:after {
-  height: 66.2%;
+.black.active,.black:active {
   background: linear-gradient(225deg, #332, rgb(70, 64, 64));
   box-shadow: 0 4px 3px -3px black;
 }
