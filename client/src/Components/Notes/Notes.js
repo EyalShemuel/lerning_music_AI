@@ -17,9 +17,9 @@ const Notes = (props) => {
 
   return (
     <>
-     {/*  {shortArrays.map((ary) => (
+      {shortArrays.map((ary) => (
         <Myvexflow width="1600" height="150" clef="treble" staves={ary} />
-      ))} */}
+      ))}
     </>
   );
 };

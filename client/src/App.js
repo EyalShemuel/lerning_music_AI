@@ -10,7 +10,7 @@ up = have black key from right
 down = DONT have black key from right 
 */
 
-  const [notesObject, setNotesObject] = useState([['a1,a2'],['a1','a2']]);
+  const [notesObject, setNotesObject] = useState([]);
   const [keys, setkeys] = useState([
     { key: "a", note: "c4", type: "down" },
     { key: "q", note: "Db4", type: "up" },
