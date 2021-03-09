@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import KeyBord from "./components/KeyBord/KeyBord";
 import Notes from "./components/Notes/Notes";
-// import SoundClassifier from "./components/AI/SoundClassifier";
+import SoundClassifier from "./components/AI/SoundClassifier";
 //import Notes from "./Components/Notes/NotesVexflow";
 
 function App() {
@@ -48,12 +48,13 @@ function App() {
         />
       </div>
       <KeyBord
+      id={Math.floor(Math.random() * 10000)}
         notesObject={notesObject}
         setNotesObject={setNotesObject}
         keys={keys}
        
       />
-    {/*   <SoundClassifier /> */}
+      <SoundClassifier/>
     </div>
   );
 }

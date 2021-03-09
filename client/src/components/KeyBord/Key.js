@@ -1,13 +1,13 @@
 import React from "react";
 /* {key:'a',note:'c1',pressed:false} */
-const Key = ({ theKey, note, type }) => {
+const Key = ({id, theKey, note, type }) => {
 
  
   return (
     /* "key white" */
 
     <div
-      id={theKey}
+    id={Math.floor(Math.random() * 10000)}
       data-note={note}
       className={type === "up" ? "key black" : "key white"}
     >
