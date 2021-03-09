@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
-import KeyBord from "./Components/KeyBord/KeyBord";
-import Notes from "./Components/Notes/Notes";
+import KeyBord from "./components/KeyBord/KeyBord";
+import Notes from "./components/Notes/Notes";
+// import SoundClassifier from "./components/AI/SoundClassifier";
 //import Notes from "./Components/Notes/NotesVexflow";
 
 function App() {
-  /* 
-up = have black key from right
-down = DONT have black key from right 
-*/
+  
 
   const [notesObject, setNotesObject] = useState([]);
   const [keys, setkeys] = useState([
@@ -39,7 +37,7 @@ down = DONT have black key from right
   ]);
   
   return (
-    <div className="screen">
+    <div className="screen">     
       <h1>play and see what you play</h1>
       <div className="tavim">
         <Notes
@@ -55,6 +53,7 @@ down = DONT have black key from right
         keys={keys}
        
       />
+    {/*   <SoundClassifier /> */}
     </div>
   );
 }

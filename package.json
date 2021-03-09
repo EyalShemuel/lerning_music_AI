@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/EyalShemuel/lerning_music_AI#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "ml5": "^0.6.1",
+    "vexflow": "^3.0.9"
   }
 }
