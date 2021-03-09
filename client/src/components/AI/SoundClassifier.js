@@ -9,6 +9,7 @@ const options = { probabilityThreshold: 0.7 };
 const SoundClassifier = () => {
   
   useEffect(() => {
+    const options = { probabilityThreshold: 0.7 };
     const classifier = ml5.soundClassifier(
       "SpeechCommands18w",
       options,
