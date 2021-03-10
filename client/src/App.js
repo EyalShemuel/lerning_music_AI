@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "./App.css";
 import KeyBord from "./components/KeyBord/KeyBord";
 import Notes from "./components/Notes/Notes";
-import SoundClassifier from "./components/AI/SoundClassifier";
+// import SoundClassifier from "./components/AI/SoundClassifier";
 //import Notes from "./Components/Notes/NotesVexflow";
 
 function App() {
   
 
-  const [notesObject, setNotesObject] = useState([]);
+  const [notesObject, setNotesObject] = useState([['c4','d4'],]);
   const [keys, setkeys] = useState([
     { key: "a", note: "c4", type: "down" },
     { key: "q", note: "Db4", type: "up" },
@@ -54,7 +54,7 @@ function App() {
         keys={keys}
        
       />
-      <SoundClassifier/>
+      {/* <SoundClassifier/> */}
     </div>
   );
 }

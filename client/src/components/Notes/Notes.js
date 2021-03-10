@@ -1,24 +1,33 @@
-import React from 'react';
-import './notes.css';
-//import Vex from 'vexflow';
-import Myvexflow from './Myvexflow';
-//const VF = Vex.Flow;
+import React from "react";
+import "./notes.css";
+import Myvexflow from "./Myvexflow";
 
 const Notes = (props) => {
- 
+  
   const notesChanks = [...props.notesObject];
-
   const longArray = [...notesChanks];
   let shortArrays = [];
+  
 
   for (let i = 0, len = longArray.length; i < len; i += 4) {
+    console.log("Before:",shortArrays)
     shortArrays.push(longArray.slice(i, i + 4));
+    console.log("After:",shortArrays)
   }
 
+
+  // console.error(shortArrays)
   return (
     <>
-      {shortArrays.map((ary) => (
-        <Myvexflow width="1600" height="150" clef="treble" staves={ary} />
+      {console.log(shortArrays)}
+      {shortArrays.map((ary, index) => (
+        <Myvexflow 
+        key={index}
+        width="1200" 
+        height="150" 
+        clef="treble" 
+        staves={ary} 
+        />
       ))}
     </>
   );
@@ -26,8 +35,7 @@ const Notes = (props) => {
 
 export default Notes;
 
-
- /* 
+/* 
  vaxflow example
  useEffect(() => {
     const vf = new VF.Factory({

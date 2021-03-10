@@ -3,15 +3,15 @@ import './keybord.css';
 import Key from './Key';
 /* key, note, type, pressed */
 
-const KeyBord = (props) => {
+const KeyBord = ({keys,notesObject,setNotesObject}) => {
   useEffect(() => {
     /* {key:'a',note:'c1',pressed:false} */
 
     ///get a list of the white and black keys///////
-    const WHITE_KEYS = props.keys
+    const WHITE_KEYS = keys
       .filter((key) => (key.type === 'down' ? key.note : ''))
       .map((key) => key.key);
-    const BLACK_KEYS = props.keys
+    const BLACK_KEYS = keys
       .filter((key) => (key.type === 'up' ? key.note : ''))
       .map((key) => key.key);
     ////////////////////////////////////////////
@@ -39,7 +39,7 @@ const KeyBord = (props) => {
     });
 
     document.addEventListener('keyup', (e) => {
-      const keyPressed = props.keys
+      const keyPressed = keys
         .filter((key) => (key.key === e.key ? key.note : ''))
         .map((key) => key.note);
       if (e.repeat) return;
@@ -55,25 +55,27 @@ const KeyBord = (props) => {
         editNotes(keyPressed);
     });
    // eslint-disable-next-line 
-  }, [props.keys]);
+  }, []);
 
   const sheetNote = [];
   const editNotes = (note) => {
     sheetNote.push(note[0]);
 
     console.log(note[0]);
-    props.setNotesObject([...props.notesObject, sheetNote]);
+    setNotesObject([...notesObject, sheetNote]);
   };
-  console.log(props.notesObject);
+  console.log(notesObject);
   return (
     <div className="piano">
-      {props.keys.map((key) => (
-        <Key
-        id={Math.floor(Math.random() * 10000)}
+      {keys.map((key,index) => (
+        <Key   
+          key={index}    
           theKey={key.key}
           note={key.note}
           type={key.type}
-          pressed={key.pressed}
+          pressed={key.pressed}         
+          onKeyDown={()=>console.log('im down')}
+          onKeyUp={()=>console.log('im up')}
         />
       ))}
     </div>

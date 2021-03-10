@@ -24,7 +24,8 @@ const Myvexflow = ({
       );
     }
     const renderer = rendererRef.current;
-    renderer.resize(width, height);
+     renderer.resize(width, height);
+     
     const context = renderer.getContext();
     context.setFont('Arial', 10, '').setBackgroundFillStyle('#eed');
     const staveWidth = (width - clefAndTimeWidth) / staves.length;
@@ -59,12 +60,13 @@ const Myvexflow = ({
               duration: String(duration),
             })
         );
-      // console.log(processedNotes)
+       console.log(processedNotes)
       Formatter.FormatAndDraw(context, stave, processedNotes, {
         auto_beam: true,
+        align_rests:false
       });
     });
-  }, );
+  },[clef, staves , width, height , timeSignature,container] );
 
   return (<div ref={container} />);
 }
