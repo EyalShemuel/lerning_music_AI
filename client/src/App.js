@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import KeyBord from "./components/KeyBord/KeyBord";
 import Notes from "./components/Notes/Notes";
-// import SoundClassifier from "./components/AI/SoundClassifier";
+ import SoundClassifier from "./components/AI/SoundClassifier";
 //import Notes from "./Components/Notes/NotesVexflow";
 
 function App() {
@@ -54,7 +54,7 @@ function App() {
         keys={keys}
        
       />
-      {/* <SoundClassifier/> */}
+      <SoundClassifier/>
     </div>
   );
 }

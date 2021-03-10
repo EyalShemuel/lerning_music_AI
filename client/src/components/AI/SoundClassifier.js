@@ -11,7 +11,7 @@ function SoundClassifier() {
   /* file://public/model/model.json */
   const options = { probabilityThreshold: 0.7 };
    classifier = ml5.soundClassifier(
-    'file://./model/model.json',
+    'https://teachablemachine.withgoogle.com/models/YXQ-QhabY/model.json',
     options,
     modelReady
   );
