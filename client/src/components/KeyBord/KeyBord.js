@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './keybord.css';
 import Key from './Key';
+import {keyPressSimulation , editNotes} from '../supporters/supporters';
 /* key, note, type, pressed */
 
 const KeyBord = ({keys,notesObject,setNotesObject}) => {
@@ -29,28 +30,41 @@ const KeyBord = ({keys,notesObject,setNotesObject}) => {
 
 
     keyDivs.forEach((key) => {
-      key.addEventListener('click', (e) => console.log(e));
+     try {
+      key.addEventListener('click', (e) =>
+      {
+        try {
+
+        const depressed = key.getElementsByTagName("h1")[0].innerHTML; //finds the keybord letter that belong the keypad on the screen
+        const keyPressed = keys.filter((key) => (key.key === depressed ? key.note : "")).map((key) => key.note);
+        const NewSheetNote = editNotes(keyPressed,sheetNote);
+        setNotesObject([...notesObject, NewSheetNote]);
+
+
+        } catch (error) {
+         console.log('error'); 
+        }
+      });
+     } catch (error) {
+      console.log('error'); 
+     }
+     
     });
 
     document.addEventListener('keydown', (e) => {
       if (e.repeat) return;
-      keyPressSimuletion(e, WHITE_KEYS, BLACK_KEYS, whiteKeys, blackKeys,'add');     
+      keyPressSimulation(e.key, WHITE_KEYS, BLACK_KEYS, whiteKeys, blackKeys,'add');     
     });
 
     document.addEventListener('keyup', (e) => {
-      const noteToAdd = keys
-        .filter((key) => (key.key === e.key ? key.note : ''))
-        .map((key) => key.note);
-      
-        keyPressSimuletion(e, WHITE_KEYS, BLACK_KEYS, whiteKeys, blackKeys,'remove');
-        editNotes(noteToAdd,sheetNote);
+        const noteToAdd = keys.filter((key) => (key.key === e.key ? key.note : '')).map((key) => key.note);      
+        keyPressSimulation(e.key, WHITE_KEYS, BLACK_KEYS, whiteKeys, blackKeys,'remove');
+        const NewSheetNote = editNotes(noteToAdd,sheetNote);
+        setNotesObject([...notesObject, NewSheetNote]);
     });
    // eslint-disable-next-line 
   }, []);
 
- 
-  
-  console.log(notesObject);
 
 
   return (
@@ -69,27 +83,4 @@ const KeyBord = ({keys,notesObject,setNotesObject}) => {
 };
 
 export default KeyBord;
-
-const editNotes = (note,sheetNote) => {
-  sheetNote.push(note[0]);
-  //console.log(note[0]);
-  setNotesObject([...notesObject, sheetNote]);
-};
-
-const keyPressSimuletion = (e, WHITE_KEYS, BLACK_KEYS, whiteKeys, blackKeys,AddOrRemoveclass) => {
-  const key = e.key;
-  const whiteKeyIndex = WHITE_KEYS.indexOf(key);
-  const blackKeyIndex = BLACK_KEYS.indexOf(key);
-  if (AddOrRemoveclass = 'add') {
-    if (whiteKeyIndex > -1)
-      whiteKeys[whiteKeyIndex].classList.add('active');
-    if (blackKeyIndex > -1)
-      blackKeys[blackKeyIndex].classList.add('active');
-  } else if (AddOrRemoveclass = 'remove') {
-    if (whiteKeyIndex > -1)
-      whiteKeys[whiteKeyIndex].classList.remove('active');
-    if (blackKeyIndex > -1)
-      blackKeys[blackKeyIndex].classList.remove('active');
-  }
-}
 

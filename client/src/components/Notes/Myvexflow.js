@@ -17,11 +17,26 @@ const Myvexflow = ({
   const rendererRef = useRef();
 
   useEffect(() => {
+
+    
     if (rendererRef.current == null) {
       rendererRef.current = new Renderer(
         container.current,
         Renderer.Backends.SVG
       );
+    }else{
+      try {
+        let theSvg = document.getElementsByTagName("svg");
+        // console.log(theSvg)
+        theSvg[0].remove();
+  
+        rendererRef.current = new Renderer(
+          container.current,
+          Renderer.Backends.SVG
+        ); 
+      } catch (error) {
+       console.log(error) 
+      }      
     }
     const renderer = rendererRef.current;
      renderer.resize(width, height);
@@ -40,7 +55,8 @@ const Myvexflow = ({
       currX += stave.getWidth();
       stave.setContext(context).draw();
 
-      const processedNotes = notes
+      try {
+        const processedNotes = notes
         .map((note) => (typeof note === 'string' ? { key: note } : note))
         .map((note) =>
           Array.isArray(note) ? { key: note[0], duration: note[1] } : note
@@ -60,11 +76,17 @@ const Myvexflow = ({
               duration: String(duration),
             })
         );
-       console.log(processedNotes)
-      Formatter.FormatAndDraw(context, stave, processedNotes, {
-        auto_beam: true,
-        align_rests:false
-      });
+
+        Formatter.FormatAndDraw(context, stave, processedNotes, {
+          auto_beam: true,
+          align_rests:false
+        });
+        
+      } catch (error) {
+        console.log(error);
+      }
+      //  console.log(processedNotes)
+      
     });
   },[clef, staves , width, height , timeSignature,container] );
 

@@ -10,16 +10,15 @@ const Notes = (props) => {
   
 
   for (let i = 0, len = longArray.length; i < len; i += 4) {
-    console.log("Before:",shortArrays)
+    // console.log("Before:",shortArrays)
     shortArrays.push(longArray.slice(i, i + 4));
-    console.log("After:",shortArrays)
+    // console.log("After:",shortArrays)
   }
 
 
   // console.error(shortArrays)
   return (
-    <>
-      {console.log(shortArrays)}
+    <>     
       {shortArrays.map((ary, index) => (
         <Myvexflow 
         key={index}
