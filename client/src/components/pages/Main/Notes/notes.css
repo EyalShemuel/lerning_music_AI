@@ -1,0 +1,24 @@
+.tavim{
+    grid-row: 2;
+    grid-column: 1; 
+    overflow-y:scroll ;
+    height: 100%;
+    border: 1px solid black;
+    
+  }
+
+
+  .mainSection{
+   /*  background-color: #ff0101; */
+    grid-row: 1;
+    grid-column: 1;
+    
+    width: 100%;
+    
+    justify-self: center;
+}
+svg{
+    margin:auto;
+    display:grid;
+}
+
