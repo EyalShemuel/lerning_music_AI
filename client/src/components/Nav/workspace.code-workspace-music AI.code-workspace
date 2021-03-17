@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\.."
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\..\\..\\..\\Downloads\\opensheetmusicdisplay-develop\\demo"
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\..\\..\\..\\Desktop\\קורס בניית אתרים\\react-opensheetmusicdisplay-master"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "demo"
+	}
+}

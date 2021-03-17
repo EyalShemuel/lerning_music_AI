@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './main.css';
+
 import KeyBord from './KeyBord/KeyBord';
 import Notes from './Notes/Notes';
 import SoundClassifier from './AI/SoundClassifier';
